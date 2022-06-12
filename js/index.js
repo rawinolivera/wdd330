@@ -4,8 +4,8 @@ const links = [
         url: "lesson01/index.html"
     },
     {
-        label: "Comming soon...",
-        url: "https://rawinolivera.github.io/wdd330/"
+        label: "L02 notes",
+        url: "lesson02/index.html"
     },
     {
         label: "Comming soon...",
