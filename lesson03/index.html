@@ -14,14 +14,17 @@
         <h1>Notes - Reading Lesson 03</h1>
     </header>
     <main>
-        <p><span style="color: #000051;">The Window Object</span></p>
+        <h2>Javascript Novide to Ninja - Chapter 09: The Window Object</h2>
+        <p><span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">The Window Object</span></p>
         <p>The Browser Object Model (BOM) is a collection of properties and methods that contain information about the
             browser and computer screen. It can also be used for the rather dubious practice of creating pop-up windows,
             if you’re into annoying your users. <br>Properties and methods are made available throught the window
             object. The BOM only make sense in a browser invironment.</p>
-        <p><span style="color: #000051;">Going Global --></span> Global Variables are created without using the const, let or var keywords. Global variables
+        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Going Global --></span> Global Variables
+            are created without using the const, let or var keywords. Global variables
             can be accessed in all parts of the program. They are actual properties of a global object.</p>
-        <p><span style="color: #000051;">Dialogs:</span> three functions that produced dialogs in the brosers -> alert(), confirm() and prompt(). <br>
+        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Dialogs:</span> three functions that
+            produced dialogs in the brosers -> alert(), confirm() and prompt(). <br>
             window.alert() method will paused the execution of the program and display a message in a dialog box.
             <br>window.confirm()will stop the execution of the program and display a confirmation dialog that shows the
             message provided as an argument, and giving the options OK or Cancel. It returns the boolean values of true
@@ -30,12 +33,14 @@
             input field taht allows the user to enter text. This text is then returned as a string when the user clicks
             OK. If the user clicks Cancel, null is returned.
         </p>
-        <p><span style="color: #000051;">Browser Information --></span> has a navigator property that returns a reference to the Navigator object. The
+        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Browser Information --></span> has a
+            navigator property that returns a reference to the Navigator object. The
             Navigator object contains information about the browser being used. Its userAgent property will return
             information about the browser and operating system being used. <br>Don’t rely on this information though, as
             it can be modified by a user to masquerade as a different browser. It can also be difficult to make any
             sense of the string returned, because all browsers pretend to be others to some degree.</p>
-        <p><span style="color: #000051;">Location --></span> The window.location property is an object that contains information about the URL of the current
+        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Location --></span> The window.location
+            property is an object that contains information about the URL of the current
             page. It contains a number of properties that provide information about different fragments of the URL.
             <br>window.location.href -> returns the full URL as a string. This property is a read/write property, which
             means it can also be changed by assignment. If this is done, the page will be reloaded using the new
@@ -53,7 +58,8 @@
             cannot be changed. <br>The window.location object also has the following methods: reload(), assign(),
             replace() and toString().
         </p>
-        <p><span style="color: #000051;">The Browser History --></span> The window.history property can be used to access information about any previously
+        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">The Browser History --></span> The
+            window.history property can be used to access information about any previously
             visited pages in the current browser session. Avoid confusing this with the new HTML5 History API. <br> The
             window.history.length property shows how many pages have been visited before arriving at the current page.
             <br> The window.history.go() method can be used to go to a specific page, where 0 is the current page.
@@ -61,28 +67,33 @@
             navigate forwards and backwards by one page respectively, just like using the browser’s forward and back
             buttons.
         </p>
-        <p><span style="color: #000051;">Controlling Windows --></span> A new window can be opened using the window.open() method. This takes the URL of the
+        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Controlling Windows --></span> A new
+            window can be opened using the window.open() method. This takes the URL of the
             page to be opened as its first parameter, the window title as its second parameter, and a list of attributes
             as the third parameter. This can also be assigned to a variable, so the window can then be referenced later
             in the code. </p>
         <div style="text-align:center;"> <img src="../images/window-open.JPG" alt="window.open code"> </div>
-        <p><span style="color: #000051;"></span>The close() method can be used to close a window, assuming you have a reference to it: popup.close(); <br>It
+        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;"></span>The close() method can be used to
+            close a window, assuming you have a reference to it: popup.close(); <br>It
             is also
             possible to move a window using the window.moveTo() method and resize a window using the window.resizeTo()
             method.</p>
-        <p><span style="color: #000051;">Screen Information --></span> The window.screen object contains information about the screen the browser is
+        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Screen Information --></span> The
+            window.screen object contains information about the screen the browser is
             displayed on. You can find out the height and width of the screen in pixels using the height and width
             properties respectively. The availHeight and availWidth can be used to find the height and width of the
             screen, excluding any operating system menus. <br>The colorDepth property can be used to find the color bit
             depth of the user’s monitor, although there are few use cases for doing this other than collecting user
             statistics.</p>
-        <p><span style="color: #000051;">The Document Object --></span> Each window object contains a document object. This object has properties and methods
+        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">The Document Object --></span> Each
+            window object contains a document object. This object has properties and methods
             that deal with the page that has been loaded into the window. <br>The write() method simply writes a string
             of text to the page: <br>->document.write('Hello, world!'); <br>It is possible to include HTML in the string
             and this will become part of the DOM tree. The document.write() method can also be used within a document
             inside 'script' tags to inject a string into the markup. This will not overwrite the rest of the HTML on the
             page.</p>
-        <p><span style="color: #000051;">Cookies --></span> are small files that are saved locally on a user's computer invented by Netscape as a way of
+        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Cookies --></span> are small files that
+            are saved locally on a user's computer invented by Netscape as a way of
             getting round HTTP being a stateless protocol. Cookies can be used for personalizing a user’s browsing
             experience, storing user preferences, keeping track of user choices (such as a shopping cart),
             authentication and tracking users. Cookies are still useful for retaining state information (such as if a
@@ -90,12 +101,17 @@
             the form of a text file that contain a list of name/value
             pairs separated by semicolons. <br>document.coockie -> Creating cookies -> Changing Coockies Values ->
             Reading Cookies.</p>
-        <p><span style="color: #000051;">Timing Functions --></span> The window object provides some useful methods for scheduling the execution of a
+        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Timing Functions --></span> The window
+            object provides some useful methods for scheduling the execution of a
             function, and for repeatedly executing functions at regular intervals. <br>-> window.setTimeout() method
             accepts a callback to a function as its first parameter and a number of milliseconds as its second
             parameter. <br>->window.setInterval() method works in a similar way to window.setTimeout(), except that it
             will repeatedly invoke the callback function after every given number of milliseconds.</p>
-        <p><span style="color: #000051;">Animation --></span> The setTimeOut() and setInterval() methods can be used to animate elements on a web page.</p>
+        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Animation --></span> The setTimeOut()
+            and setInterval() methods can be used to animate elements on a web page.</p>
+        <h2>The Content Template element -- from https://developer.mozilla.org/</h2>
+        <p>The template tag HTML element is a mechanism for holding HTML that is not to be rendered immediately when a
+                page is loaded but may be instantiated subsequently during runtime using JavaScript.</p>
     </main>
     <footer>
         <h2>Rawin Olivera | BYUI Online | WDD-330</h2>

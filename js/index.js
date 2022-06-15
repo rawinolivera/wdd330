@@ -9,7 +9,7 @@ const links = [
     },
     {
         label: "L03 notes",
-        url: "lesson02/index.html"
+        url: "lesson03/index.html"
     },
     {
         label: "Comming soon...",
