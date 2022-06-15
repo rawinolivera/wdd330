@@ -2,7 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap');
 
 body {
-    text-align: center;
     background-color: #c3c3c3;
 }
 
@@ -12,7 +11,8 @@ header {
 }
 
 h1 {
-    font-family: Merienda One; 
+    font-family: Merienda One;
+    text-align: center;
 }
 
 main {
@@ -22,11 +22,13 @@ main {
 p {
     font-family: roboto mono;
     font-weight: 600;
+    text-align: justify;
 }
 
 footer {
     background-color: #33a3ff;
     padding: .5rem;
+    text-align: center;
 }
 
 footer h2 {
