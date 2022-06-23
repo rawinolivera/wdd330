@@ -12,12 +12,12 @@ const links = [
         url: "lesson03/index.html"
     },
     {
-        label: "Comming soon...",
-        url: "https://rawinolivera.github.io/wdd330/"
+        label: "L04 notes",
+        url: "lesson04/index.html"
     },
     {
-        label: "Comming soon...",
-        url: "https://rawinolivera.github.io/wdd330/"
+        label: "L05 notes",
+        url: "lesson05/index.html"
     },
     {
         label: "Comming soon...",
