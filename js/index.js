@@ -20,8 +20,8 @@ const links = [
         url: "lesson05/index.html"
     },
     {
-        label: "Comming soon...",
-        url: "https://rawinolivera.github.io/wdd330/"
+        label: "L06 notes",
+        url: "lesson06/index.html"
     }
 ]
 
