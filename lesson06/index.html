@@ -5,210 +5,255 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reading Notes L05</title>
+    <title>Reading Notes L06</title>
     <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
     <header>
-        <h1>Notes - Reading Lesson 05</h1>
+        <h1>Notes - Reading Lesson 06</h1>
     </header>
     <main>
-        <h2>Javascript Novide to Ninja - Chapter 13: Ajax</h2>
-        <p>Ajax is a technique that allows web pages to communicate asynchronously with a server, and it dynamically
-            updates web pages without reloading. This enables data to be sent and received in the background, as well as
-            portions of a page to be updated in response to user events, while the rest of the program continues to run.
+        <h2>Javascript Novide to Ninja - Chapter 8: Form</h2>
+        <p>Forms are a very common method of interacting with a web page. A form is the main component of Google’s home
+            page, and most of us use forms every day to log in to our favorite sites.
         </p>
-        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Clients and Servers</span>
+        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Forms</span>
         </p>
-        <p>A client, such as a web browser, will request a resource (usually a web page) from a server, which processes
-            the request and sends back a response to the client. <br>Ajax allows JavaScript to request resources from a
-            server on behalf of the client. The resources requested are usually JSON data or small fragments of text or
-            HTML rather than a whole web page. Consequently, a server is required when requesting resources using Ajax.
+        <p>Forms are made up of a < form > element that contains form controls such as input fields, select menus and buttons. These input fields
+            can be populated with information that is processed once the form has been submitted.
         </p>
-        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">A Brief History of Ajax</span></p>
-        <p>Asynchronous loading techniques started to be noticed when Google launched Gmail and Google Maps in 2004 and
-            2005 respectively. These web applications used asynchronous loading techniques to enhance the user
-            experience by changing the parts of the page without a full refresh. <br>The term 'Ajax' was coined by Jesse
-            James Garrett in 2005 in the article “Ajax: A New Approach to Web Applications,” where he referred to
-            techniques being used by Google in its recent web applications. Ajax was a neat acronym that referred to the
-            different parts of the process being used: Asynchronous JavaScript and XML:</p>
 
-        <ul>
-            <li><span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;"> Asynchronous</span> ― When a request for
-                data is sent, the program doesn’t have to stop and wait for the response. It can carry on running,
-                waiting for an event to fire when a response is received. By using callbacks to manage this, programs
-                are able to run in an efficient way, avoiding lag as data is transferred back and forth.</li>
-            <li><span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">JavaScript</span> ― JavaScript was always
-                considered a 'front-end' language, not used to communicate with the server. Ajax enabled JavaScript to
-                send requests and receive responses from a server, allowing content to be updated in real time.</li>
-            <li><span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">XML</span> ― When the term Ajax was
-                originally coined, XML documents were often used to return data. Many different types of data can be
-                sent, but by far the most commonly used in Ajax nowadays is JSON, which is more lightweight and easier
-                to parse than XML. (Although it has never really taken off, the term Ajaj is sometimes used to describe
-                the technique.) JSON also has the advantage of being natively supported in JavaScript, so you can deal
-                with JavaScript objects rather than having to parse XML files using DOM methods.</li>
-        </ul>
-        <p>
-            Today, it’s unusual for Ajax not to be used when a partial web page update is required. The explosion in the
-            use
-            of public APIs also means that Ajax is used more than ever to transport data back and forth between sites.
-        </p>
-        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">The Fetch API</span></p>
-        <p>is currently a living standard for requesting and sending data asynchronously across a network. The Fetch API
-            uses promises to avoid callback hell, and also streamlines a number of concepts that had become cumbersome
-            when using the XMLHttpRequest object.
-        </p>
-        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Basic Usage --></span> The Fetch API
-            provides a global fetch() method that only has one mandatory argument, which is the URL of the resource you
-            wish to fetch. </p>
-        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Response Interface --></span>
-            The Fetch API introduced the Response interface that deals with the object that’s returned when the promise
-            is fulfilled. Response objects have a number of properties and methods that allow us to process the response
-            effectively.
-        </p>
-        <p>Some other properties of the Response object are:</p>
-        <ul>
-            <li><span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;"> headers</span> – A
-                Headers object (see later section) containing any headers associated with the response.</li>
-            <li><span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">url</span> ― A string containing
-                the URL of response.</li>
-            <li><span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">redirected</span> ― A boolean value that
-                specifies if the response is the result of a redirect.</li>
-            <li><span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">type</span> ― A string value of 'basic',
-                'cors', 'error' or 'opaque'. A value of 'basic' is used for a response from the same domain. A value of
-                'cors' means the data was received from a valid cross-origin request from a different domain. A value of
-                'opaque' is used for a response received from 'no-cors' request from another domain, which means access
-                to the data will be severely restricted. A value of 'error' is used when a network error occurs..</li>
-        </ul>
-
-        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Redirects --></span> The redirect()
-            method can be used to redirect to another URL. It creates a new promise that resolves to the response from
-            the redirected URL.
-        </p>
-        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Text Responses --></span> The text()
-            method takes a stream of text from the response, reads it to completion and then returns a promise that
-            resolves to a USVSting object that can be treated as a string in JavaScript.</p>
-
-        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">File Responses --></span> The blob()
-            method is used to read a file of raw data, such as an image or a spreadsheet. Once it has read the whole
-            file, it returns a promise that resolves with a blob object.
-        </p>
-        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">JSON Responses --></span>
-            JSON is probably the most common format for AJAX responses. The json() method is used to deal with these by
-            transforming a stream of JSON data into a promise that resolves to a JavaScript object.
-        </p>
-        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Creating Response Objects --></span>
-            These can be useful to use if you are creating an API that needs to send a response, or if you need to send
-            a dummy response for testing purposes. </p>
-
-        <p style="padding-left: 5rem;"> const response = new Response( 'Hello!', { <br>
-            ok: true, <br>
-            status: 200, <br>
-            statusText: 'OK', <br>
-            type: 'cors', <br>
-            url: '/api' <br>
-            }); <br></p>
-
-        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Request Interface --></span> We can get
-            more fine-grained control over the request being made by providing a Request object as an argument. This
-            allows a number of options to be set about the request.
-
-            <br>Request objects are created using the Request() constructor, and include the following properties:
-        </p>
-        <ul>
-            <li>
-                <span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">url</span> – The URL of the requested
-                resource (the only property that is required).
-            </li>
-            <li>
-                <span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">method</span> – a string that specifies
-                which HTTP method should be used for the request. By default, this is 'GET'.
-            </li>
-            <li>
-                <span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">headers</span> – This is a Headers object
-                (see later section) that provides details of the request's headers.
-            </li>
-            <li>
-                <span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">mode</span> – Allows you to specify if
-                CORS is used or not. CORS is enabled by default.
-            </li>
-            <li>
-                <span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">cache</span> – Allows you to specify how
-                the request will use the browser's cache. For example, you can force it to request a resource and update
-                the cache with the result, or you can force it to only look in the cache for the resource.
-            </li>
-            <li>
-                <span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">credentials</span> – Lets you specify if
-                cookies
-                should be allowed with the request.
-            </li>
-            <li>
-                <span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">redirect</span> – Specifies what to do if
+        
+            <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">A Brief History of Ajax</span></p>
+            <p>Asynchronous loading techniques started to be noticed when Google launched Gmail and Google Maps in 2004
+                and
+                2005 respectively. These web applications used asynchronous loading techniques to enhance the user
+                experience by changing the parts of the page without a full refresh. <br>The term 'Ajax' was coined by
+                Jesse
+                James Garrett in 2005 in the article “Ajax: A New Approach to Web Applications,” where he referred to
+                techniques being used by Google in its recent web applications. Ajax was a neat acronym that referred to
                 the
-                response returns a redirect. There’s a choice of three values: 'follow' (the redirect is followed),
-                'error' (an error is thrown) or 'manual' (the user has to click on a link to follow the redirect).
-            </li>
-        </ul>
-        <div style="text-align:center;"> <img src="../images/hipertexTransfertProtocol.JPG"
-                alt="Hipertext Transfer Protocol"> </div>
+                different parts of the process being used: Asynchronous JavaScript and XML:</p>
 
-        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Headers Interface --></span> HTTP
-            headers are used to pass on any additional information about a request or response. Typical information
-            contained in headers includes the file-type of the resource, cookie information, authentication information
-            and when the resource was last modified. <br> A Headers object includes the following properties and methods
-            that can be used to access information about the headers, as well as edit the header information.
-        <ul>
-            <li><span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">has()</span> – Can be used to check if
-                the headers object contains the header provided as an argument.
-            </li>
-            <li><span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">get()</span> – Returns the value of the
-                header provided as an argument
-            </li>
-            <li><span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">set()</span> – Can be used to set a value
-                of an already existing header, or create a new header with the value provided as an argument if it does
-                not already exist.
-            </li>
-            <li><span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">append()</span> – Adds a new header to
-                the headers object.
-            </li>
-            <li><span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">delete()</span> – Removes the header
-                provided as an argument.
-            </li>
-            <li><span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">keys(), values() and entries()</span> –
-                Iterators that can be used to iterate over the headers key, values or entries (key and value pairs).
-            </li>
-        </ul>
-        </p>
+            <ul>
+                <li><span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;"> Asynchronous</span> ― When a request
+                    for
+                    data is sent, the program doesn’t have to stop and wait for the response. It can carry on running,
+                    waiting for an event to fire when a response is received. By using callbacks to manage this,
+                    programs
+                    are able to run in an efficient way, avoiding lag as data is transferred back and forth.</li>
+                <li><span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">JavaScript</span> ― JavaScript was
+                    always
+                    considered a 'front-end' language, not used to communicate with the server. Ajax enabled JavaScript
+                    to
+                    send requests and receive responses from a server, allowing content to be updated in real time.</li>
+                <li><span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">XML</span> ― When the term Ajax was
+                    originally coined, XML documents were often used to return data. Many different types of data can be
+                    sent, but by far the most commonly used in Ajax nowadays is JSON, which is more lightweight and
+                    easier
+                    to parse than XML. (Although it has never really taken off, the term Ajaj is sometimes used to
+                    describe
+                    the technique.) JSON also has the advantage of being natively supported in JavaScript, so you can
+                    deal
+                    with JavaScript objects rather than having to parse XML files using DOM methods.</li>
+            </ul>
+            <p>
+                Today, it’s unusual for Ajax not to be used when a partial web page update is required. The explosion in
+                the
+                use
+                of public APIs also means that Ajax is used more than ever to transport data back and forth between
+                sites.
+            </p>
+            <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">The Fetch API</span></p>
+            <p>is currently a living standard for requesting and sending data asynchronously across a network. The Fetch
+                API
+                uses promises to avoid callback hell, and also streamlines a number of concepts that had become
+                cumbersome
+                when using the XMLHttpRequest object.
+            </p>
+            <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Basic Usage --></span> The Fetch API
+                provides a global fetch() method that only has one mandatory argument, which is the URL of the resource
+                you
+                wish to fetch. </p>
+            <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Response Interface --></span>
+                The Fetch API introduced the Response interface that deals with the object that’s returned when the
+                promise
+                is fulfilled. Response objects have a number of properties and methods that allow us to process the
+                response
+                effectively.
+            </p>
+            <p>Some other properties of the Response object are:</p>
+            <ul>
+                <li><span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;"> headers</span> – A
+                    Headers object (see later section) containing any headers associated with the response.</li>
+                <li><span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">url</span> ― A string containing
+                    the URL of response.</li>
+                <li><span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">redirected</span> ― A boolean value
+                    that
+                    specifies if the response is the result of a redirect.</li>
+                <li><span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">type</span> ― A string value of
+                    'basic',
+                    'cors', 'error' or 'opaque'. A value of 'basic' is used for a response from the same domain. A value
+                    of
+                    'cors' means the data was received from a valid cross-origin request from a different domain. A
+                    value of
+                    'opaque' is used for a response received from 'no-cors' request from another domain, which means
+                    access
+                    to the data will be severely restricted. A value of 'error' is used when a network error occurs..
+                </li>
+            </ul>
 
-        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Putting It All Together --></span> We
-            can use the Headers, Request and Response objects to put together a typical example that sets up the URL,
-            Request and Headers before calling the fetch() method
-        </p>
-        <p style="padding-left:5rem; text-align:left">
-            const url = 'https:example.com/data'; <br>
-            const headers = new Headers({ 'Content-Type': 'text/plain', 'Accept-Charset' : 'utf-8', 'Accept-Encoding':'gzip,deflate' }) <br>
-            <br>
-            const request = (url,{ <br>
+            <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Redirects --></span> The redirect()
+                method can be used to redirect to another URL. It creates a new promise that resolves to the response
+                from
+                the redirected URL.
+            </p>
+            <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Text Responses --></span> The text()
+                method takes a stream of text from the response, reads it to completion and then returns a promise that
+                resolves to a USVSting object that can be treated as a string in JavaScript.</p>
+
+            <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">File Responses --></span> The blob()
+                method is used to read a file of raw data, such as an image or a spreadsheet. Once it has read the whole
+                file, it returns a promise that resolves with a blob object.
+            </p>
+            <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">JSON Responses --></span>
+                JSON is probably the most common format for AJAX responses. The json() method is used to deal with these
+                by
+                transforming a stream of JSON data into a promise that resolves to a JavaScript object.
+            </p>
+            <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Creating Response Objects --></span>
+                These can be useful to use if you are creating an API that needs to send a response, or if you need to
+                send
+                a dummy response for testing purposes. </p>
+
+            <p style="padding-left: 5rem;"> const response = new Response( 'Hello!', { <br>
+                ok: true, <br>
+                status: 200, <br>
+                statusText: 'OK', <br>
+                type: 'cors', <br>
+                url: '/api' <br>
+                }); <br></p>
+
+            <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Request Interface --></span> We can
+                get
+                more fine-grained control over the request being made by providing a Request object as an argument. This
+                allows a number of options to be set about the request.
+
+                <br>Request objects are created using the Request() constructor, and include the following properties:
+            </p>
+            <ul>
+                <li>
+                    <span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">url</span> – The URL of the requested
+                    resource (the only property that is required).
+                </li>
+                <li>
+                    <span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">method</span> – a string that
+                    specifies
+                    which HTTP method should be used for the request. By default, this is 'GET'.
+                </li>
+                <li>
+                    <span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">headers</span> – This is a Headers
+                    object
+                    (see later section) that provides details of the request's headers.
+                </li>
+                <li>
+                    <span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">mode</span> – Allows you to specify
+                    if
+                    CORS is used or not. CORS is enabled by default.
+                </li>
+                <li>
+                    <span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">cache</span> – Allows you to specify
+                    how
+                    the request will use the browser's cache. For example, you can force it to request a resource and
+                    update
+                    the cache with the result, or you can force it to only look in the cache for the resource.
+                </li>
+                <li>
+                    <span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">credentials</span> – Lets you specify
+                    if
+                    cookies
+                    should be allowed with the request.
+                </li>
+                <li>
+                    <span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">redirect</span> – Specifies what to
+                    do if
+                    the
+                    response returns a redirect. There’s a choice of three values: 'follow' (the redirect is followed),
+                    'error' (an error is thrown) or 'manual' (the user has to click on a link to follow the redirect).
+                </li>
+            </ul>
+            <div style="text-align:center;"> <img src="../images/hipertexTransfertProtocol.JPG"
+                    alt="Hipertext Transfer Protocol"> </div>
+
+            <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Headers Interface --></span> HTTP
+                headers are used to pass on any additional information about a request or response. Typical information
+                contained in headers includes the file-type of the resource, cookie information, authentication
+                information
+                and when the resource was last modified. <br> A Headers object includes the following properties and
+                methods
+                that can be used to access information about the headers, as well as edit the header information.
+            <ul>
+                <li><span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">has()</span> – Can be used to check
+                    if
+                    the headers object contains the header provided as an argument.
+                </li>
+                <li><span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">get()</span> – Returns the value of
+                    the
+                    header provided as an argument
+                </li>
+                <li><span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">set()</span> – Can be used to set a
+                    value
+                    of an already existing header, or create a new header with the value provided as an argument if it
+                    does
+                    not already exist.
+                </li>
+                <li><span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">append()</span> – Adds a new header
+                    to
+                    the headers object.
+                </li>
+                <li><span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">delete()</span> – Removes the header
+                    provided as an argument.
+                </li>
+                <li><span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">keys(), values() and entries()</span>
+                    –
+                    Iterators that can be used to iterate over the headers key, values or entries (key and value pairs).
+                </li>
+            </ul>
+            </p>
+
+            <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Putting It All Together --></span>
+                We
+                can use the Headers, Request and Response objects to put together a typical example that sets up the
+                URL,
+                Request and Headers before calling the fetch() method
+            </p>
+            <p style="padding-left:5rem; text-align:left">
+                const url = 'https:example.com/data'; <br>
+                const headers = new Headers({ 'Content-Type': 'text/plain', 'Accept-Charset' : 'utf-8',
+                'Accept-Encoding':'gzip,deflate' }) <br>
+                <br>
+                const request = (url,{ <br>
                 headers: headers <br>
-            }) <br>
-            <br>
-            fetch(request) <br>
-            .then( function(response) { <br>
+                }) <br>
+                <br>
+                fetch(request) <br>
+                .then( function(response) { <br>
                 if(response.ok) { <br>
-                    return response; <br>
+                return response; <br>
                 } <br>
                 throw Error(response.statusText); <br>
-            }) <br>
-            .then( response => // do something with response ) <br>
-            .catch( error => console.log('There was an error!') ) <br>
-        </p>
+                }) <br>
+                .then( response => // do something with response ) <br>
+                .catch( error => console.log('There was an error!') ) <br>
+            </p>
 
-        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">FormData</span></p>
-        <p>The Fetch API includes the FormData interface, which makes it much easier to submit information in forms using Ajax. <br>
+            <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">FormData</span></p>
+            <p>The Fetch API includes the FormData interface, which makes it much easier to submit information in forms
+                using Ajax. <br>
 
-            A FormData instance is created using a constructor function: <br><br>
-            const data = new FormData();</p>
+                A FormData instance is created using a constructor function: <br><br>
+                const data = new FormData();</p>
 
     </main>
     <footer>
