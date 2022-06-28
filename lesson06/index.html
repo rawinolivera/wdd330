@@ -20,241 +20,184 @@
         </p>
         <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Forms</span>
         </p>
-        <p>Forms are made up of a < form > element that contains form controls such as input fields, select menus and buttons. These input fields
-            can be populated with information that is processed once the form has been submitted.
+        <p>Forms are made up of a < form> element that contains form controls such as input fields, select menus and
+                buttons. These input fields
+                can be populated with information that is processed once the form has been submitted.
         </p>
 
-        
-            <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">A Brief History of Ajax</span></p>
-            <p>Asynchronous loading techniques started to be noticed when Google launched Gmail and Google Maps in 2004
-                and
-                2005 respectively. These web applications used asynchronous loading techniques to enhance the user
-                experience by changing the parts of the page without a full refresh. <br>The term 'Ajax' was coined by
-                Jesse
-                James Garrett in 2005 in the article “Ajax: A New Approach to Web Applications,” where he referred to
-                techniques being used by Google in its recent web applications. Ajax was a neat acronym that referred to
-                the
-                different parts of the process being used: Asynchronous JavaScript and XML:</p>
+        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">A Searching Example</span>
+        </p>
+        <div style="text-align:center;"> <img src="../images/form-code.JPG" alt="Form html"> </div>
+        <p>
+            This form has a name attribute of search, and contains two controls: an input field where a user can enter a
+            search phrase, and a button to submit the form. <br> The action attribute is the URL that the form will be
+            submitted to so it can be processed on the server side. The input field also has a name attribute of
+            searchInput that is used to access the information inside it.
+        </p>
 
-            <ul>
-                <li><span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;"> Asynchronous</span> ― When a request
-                    for
-                    data is sent, the program doesn’t have to stop and wait for the response. It can carry on running,
-                    waiting for an event to fire when a response is received. By using callbacks to manage this,
-                    programs
-                    are able to run in an efficient way, avoiding lag as data is transferred back and forth.</li>
-                <li><span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">JavaScript</span> ― JavaScript was
-                    always
-                    considered a 'front-end' language, not used to communicate with the server. Ajax enabled JavaScript
-                    to
-                    send requests and receive responses from a server, allowing content to be updated in real time.</li>
-                <li><span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">XML</span> ― When the term Ajax was
-                    originally coined, XML documents were often used to return data. Many different types of data can be
-                    sent, but by far the most commonly used in Ajax nowadays is JSON, which is more lightweight and
-                    easier
-                    to parse than XML. (Although it has never really taken off, the term Ajaj is sometimes used to
-                    describe
-                    the technique.) JSON also has the advantage of being natively supported in JavaScript, so you can
-                    deal
-                    with JavaScript objects rather than having to parse XML files using DOM methods.</li>
-            </ul>
-            <p>
-                Today, it’s unusual for Ajax not to be used when a partial web page update is required. The explosion in
-                the
-                use
-                of public APIs also means that Ajax is used more than ever to transport data back and forth between
-                sites.
-            </p>
-            <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">The Fetch API</span></p>
-            <p>is currently a living standard for requesting and sending data asynchronously across a network. The Fetch
-                API
-                uses promises to avoid callback hell, and also streamlines a number of concepts that had become
-                cumbersome
-                when using the XMLHttpRequest object.
-            </p>
-            <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Basic Usage --></span> The Fetch API
-                provides a global fetch() method that only has one mandatory argument, which is the URL of the resource
-                you
-                wish to fetch. </p>
-            <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Response Interface --></span>
-                The Fetch API introduced the Response interface that deals with the object that’s returned when the
-                promise
-                is fulfilled. Response objects have a number of properties and methods that allow us to process the
-                response
-                effectively.
-            </p>
-            <p>Some other properties of the Response object are:</p>
-            <ul>
-                <li><span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;"> headers</span> – A
-                    Headers object (see later section) containing any headers associated with the response.</li>
-                <li><span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">url</span> ― A string containing
-                    the URL of response.</li>
-                <li><span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">redirected</span> ― A boolean value
-                    that
-                    specifies if the response is the result of a redirect.</li>
-                <li><span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">type</span> ― A string value of
-                    'basic',
-                    'cors', 'error' or 'opaque'. A value of 'basic' is used for a response from the same domain. A value
-                    of
-                    'cors' means the data was received from a valid cross-origin request from a different domain. A
-                    value of
-                    'opaque' is used for a response received from 'no-cors' request from another domain, which means
-                    access
-                    to the data will be severely restricted. A value of 'error' is used when a network error occurs..
-                </li>
-            </ul>
+        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Accessing Form Elements --></span> The
+            legacy DOM had a useful property called document.forms that returns an HTML collection of all the forms
+            in the document in the order they appear in the markup.</p>
 
-            <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Redirects --></span> The redirect()
-                method can be used to redirect to another URL. It creates a new promise that resolves to the response
-                from
-                the redirected URL.
-            </p>
-            <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Text Responses --></span> The text()
-                method takes a stream of text from the response, reads it to completion and then returns a promise that
-                resolves to a USVSting object that can be treated as a string in JavaScript.</p>
+        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Form Properties and Methods --></span>
+            Form objects have a number of useful properties and methods that can be used to interact with the form.</p>
+        <ul>
+            <li><span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">The form.submit() method</span> ― will
+                submit the form automatically. Note that submitting a form using this method won’t trigger the form
+                submit event.</li>
+            <li><span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">The form.reset() method</span> ― will
+                reset all the form controls back to their initial values specified in the HTML.</li>
+            <li><span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">The form.action property</span> ― can be
+                used to set the action attribute of a form, so it’s sent to a different URL to be processed on the
+                server.</li>
+        </ul>
+        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Form Events --></span> Forms trigger a
+            number of events. Some of these events are exclusive to forms. <br> The focus event occurs
+            when an element is focused on. In the case of an < input> element, this is when the cursor is placed inside
+                the element (either by clicking or tapping on it or navigating to it using the keyboard).
+        </p>
+        <ul>
+            <li><span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">The blur event</span> ― occurs when the
+                user moves the focus away from the form element.</li>
+            <li><span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">The change event</span> ― occurs when the
+                user moves the focus away from the form element after changing it. So if a user clicks in an input field
+                and makes no changes, and then clicks elsewhere, the change event won’t fire, but the blur event will.
+            </li>
+        </ul>
+        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Retrieving and Changing Values From a
+                Form --></span> Text input element objects have a value property that can be used to retrieve the text
+            inside the field. <br> We can use this to report back what the user has searched for.</p>
 
-            <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">File Responses --></span> The blob()
-                method is used to read a file of raw data, such as an image or a spreadsheet. Once it has read the whole
-                file, it returns a promise that resolves with a blob object.
-            </p>
-            <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">JSON Responses --></span>
-                JSON is probably the most common format for AJAX responses. The json() method is used to deal with these
-                by
-                transforming a stream of JSON data into a promise that resolves to a JavaScript object.
-            </p>
-            <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Creating Response Objects --></span>
-                These can be useful to use if you are creating an API that needs to send a response, or if you need to
-                send
-                a dummy response for testing purposes. </p>
+        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Form Controls --></span>
+            Some common types of form control are:
+        </p>
+        <ul>
+            <li><span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">
+                    < input>
+                </span> fields, including text, passwords, check boxes, radio buttons, and file uploads</li>
+            <li><span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">
+                    < select>
+                </span> menus for drop-down lists of options.</li>
+            <li><span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">
+                    < textarea>
+                </span> elements for longer text entry.</li>
+            <li><span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">
+                    < button>
+                </span> elements for submitting and resetting forms.</li>
+        </ul>
 
-            <p style="padding-left: 5rem;"> const response = new Response( 'Hello!', { <br>
-                ok: true, <br>
-                status: 200, <br>
-                statusText: 'OK', <br>
-                type: 'cors', <br>
-                url: '/api' <br>
-                }); <br></p>
+        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Input Fields</span>
+        </p>
 
-            <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Request Interface --></span> We can
-                get
-                more fine-grained control over the request being made by providing a Request object as an argument. This
-                allows a number of options to be set about the request.
+        <p>
+            Input fields are the most common types of form control, but there are several categories of input field as
+            you’ll soon see:
+        </p>
 
-                <br>Request objects are created using the Request() constructor, and include the following properties:
-            </p>
-            <ul>
-                <li>
-                    <span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">url</span> – The URL of the requested
-                    resource (the only property that is required).
-                </li>
-                <li>
-                    <span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">method</span> – a string that
-                    specifies
-                    which HTTP method should be used for the request. By default, this is 'GET'.
-                </li>
-                <li>
-                    <span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">headers</span> – This is a Headers
-                    object
-                    (see later section) that provides details of the request's headers.
-                </li>
-                <li>
-                    <span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">mode</span> – Allows you to specify
-                    if
-                    CORS is used or not. CORS is enabled by default.
-                </li>
-                <li>
-                    <span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">cache</span> – Allows you to specify
-                    how
-                    the request will use the browser's cache. For example, you can force it to request a resource and
-                    update
-                    the cache with the result, or you can force it to only look in the cache for the resource.
-                </li>
-                <li>
-                    <span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">credentials</span> – Lets you specify
-                    if
-                    cookies
-                    should be allowed with the request.
-                </li>
-                <li>
-                    <span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">redirect</span> – Specifies what to
-                    do if
-                    the
-                    response returns a redirect. There’s a choice of three values: 'follow' (the redirect is followed),
-                    'error' (an error is thrown) or 'manual' (the user has to click on a link to follow the redirect).
-                </li>
-            </ul>
-            <div style="text-align:center;"> <img src="../images/hipertexTransfertProtocol.JPG"
-                    alt="Hipertext Transfer Protocol"> </div>
+        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Text Input Fields --></span> The default
+            type of input field is text, which is used for entering a short piece of text, such as a username. The
+            type='text' attribute is advisable to use it as it makes the intended purpose of the field explicit, helping
+            with maintenance, readability and future-proofing.
+        </p>
+        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Password Input Fields --></span> input
+            type='password' is used to enter passwords or secret information. This works in the same way as an input
+            field with type='text', except the characters are concealed as they are entered so they’re unable to be read
+            on the screen.
+        </p>
 
-            <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Headers Interface --></span> HTTP
-                headers are used to pass on any additional information about a request or response. Typical information
-                contained in headers includes the file-type of the resource, cookie information, authentication
-                information
-                and when the resource was last modified. <br> A Headers object includes the following properties and
-                methods
-                that can be used to access information about the headers, as well as edit the header information.
-            <ul>
-                <li><span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">has()</span> – Can be used to check
-                    if
-                    the headers object contains the header provided as an argument.
-                </li>
-                <li><span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">get()</span> – Returns the value of
-                    the
-                    header provided as an argument
-                </li>
-                <li><span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">set()</span> – Can be used to set a
-                    value
-                    of an already existing header, or create a new header with the value provided as an argument if it
-                    does
-                    not already exist.
-                </li>
-                <li><span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">append()</span> – Adds a new header
-                    to
-                    the headers object.
-                </li>
-                <li><span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">delete()</span> – Removes the header
-                    provided as an argument.
-                </li>
-                <li><span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">keys(), values() and entries()</span>
-                    –
-                    Iterators that can be used to iterate over the headers key, values or entries (key and value pairs).
-                </li>
-            </ul>
-            </p>
+        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Checkbox Input Fields --></span> Check
+            boxes are created using input fields with type='checkbox'. They are used to select different options that
+            can be checked (true) or left unchecked (false). The user can select more than one checkbox from a list.
+        </p>
+        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Radio Button Input Fields --></span>
+            Radio buttons are created using input fields with type='radio'. Like checkboxes they allow users to check an
+            option as true, but they provide an exclusive choice of options, so only one option can be selected.
+        </p>
 
-            <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Putting It All Together --></span>
-                We
-                can use the Headers, Request and Response objects to put together a typical example that sets up the
-                URL,
-                Request and Headers before calling the fetch() method
-            </p>
-            <p style="padding-left:5rem; text-align:left">
-                const url = 'https:example.com/data'; <br>
-                const headers = new Headers({ 'Content-Type': 'text/plain', 'Accept-Charset' : 'utf-8',
-                'Accept-Encoding':'gzip,deflate' }) <br>
-                <br>
-                const request = (url,{ <br>
-                headers: headers <br>
-                }) <br>
-                <br>
-                fetch(request) <br>
-                .then( function(response) { <br>
-                if(response.ok) { <br>
-                return response; <br>
-                } <br>
-                throw Error(response.statusText); <br>
-                }) <br>
-                .then( response => // do something with response ) <br>
-                .catch( error => console.log('There was an error!') ) <br>
-            </p>
+        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Hidden Input Fields --></span> Hidden
+            fields can be created using input fields with type='hidden'. These are not displayed by the browser, but
+            have a 'value' attribute that can contain information that is submitted with the form. They are often used
+            to send information such as settings or information that the user has already provided. <br>Note that the
+            information in these fields is in no way secret, as it’s visible in the HTML, so shouldn’t be used for
+            sensitive data.
+        </p>
+        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">File Input Fields --></span>
+            A file input field can be created using input fields with type='file'. These are used to upload files, and
+            most browsers will provide a browse button or similar that lets users select a file from their file system.
+        </p>
+        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Other Input Types --></span>
+            There are lots of new input types included in HTML5, such as number, tel and color. As browsers start to
+            support these, they will implement different user-interface elements depending on the input type.
 
-            <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">FormData</span></p>
-            <p>The Fetch API includes the FormData interface, which makes it much easier to submit information in forms
-                using Ajax. <br>
+        <div style="text-align:center;"> <img src="../images/inputs.JPG" alt="Inputs"> </div>
 
-                A FormData instance is created using a constructor function: <br><br>
-                const data = new FormData();</p>
+        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Select Drop-Down List --></span> Select
+            drop-down lists can be used to select one or more options from a list of values. The 'multiple' attribute is
+            required if more than one option is to be selected.
+        </p>
+        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Text Areas --></span>
+            A < textarea> element is used to enter long pieces of text over multiple lines such as a comment or blog
+                post. They work in much the same way as input fields. We access them using the 'name' attribute, and use
+                the value property to see what text was entered.
+        </p>
 
+        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Buttons --></span> There are different
+            types of buttons. The default type is 'submit', Another type we’ve already seen is 'reset', which will reset
+            all the form fields to their initial settings.
+        </p>
+
+        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Form Validation</span>
+        </p>
+        <p>s the process of checking whether a user has entered the information into a form correctly. Examples of the
+            types of validation that occur include ensuring that:
+        </p>
+
+        <ul>
+            <li>
+                <span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">url</span> – The URL of the requested
+                resource (the only property that is required).
+            </li>
+            <li>
+                <span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">A required field is completed.</span>
+            </li>
+            <li>
+                <span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">An email address is valid.</span>
+            </li>
+            <li>
+                <span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">A number is entered when numerical data
+                    is required.</span>
+            </li>
+            <li>
+                <span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">A password is at least a minimum number
+                    of characters.</span>
+            </li>
+
+        </ul>
+        <p>
+            Validation can occur on the client side using JavaScript, and on the server side. It is advisable to use
+            both client-side and server-side validation. JavaScript should not be relied upon to validate any data
+            before it’s saved to a database. This is because it’s possible for a user to modify the JavaScript code and
+            bypass the validation rules. It's also very easy to bypass the front-end completely and send arbitrary data
+            to the application's backend. For these reasons, JavaScript validation should be used to enhance the user
+            experience when filling in a form by giving feedback about any errors before it’s submitted. This should
+            then be backed up with more validation performed on the server before the data is eventually saved to a
+            database. Having said that, it’s still useful to validate on the client side even if the data will be
+            validated again on the server side. This is because it will ensure that more valid data is sent to the
+            server, which helps to cut down the number of HTTP requests required to send the form back and forward from
+            the server to be corrected.
+        </p>
+
+        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Disabling the Submit Button --></span>
+            Another useful technique that can aid usability is to disable the submit button if there are errors on the
+            form. If the submit button is disabled then no action is taken when it’s clicked. Most browsers will also
+            display it in a lighter color to indicate that it cannot be clicked on. This prevents users from submitting
+            a form containing any errors.
+        </p>
+
+        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Using FormData Objects
+            Effectively (13min)</span>
+            This was repeat several times in the video: to work inside the FormData Object, you have to have the name
+            attribute inside of your input element!</p>
     </main>
     <footer>
         <h2>Rawin Olivera | BYUI Online | WDD-330</h2>
