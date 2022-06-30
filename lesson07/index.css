@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Merienda+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap');
+
+body {
+    background-color: #c3c3c3;
+}
+
+header {
+    background-color: #33a3ff;
+    padding: .8rem;
+}
+
+h1 {
+    font-family: Merienda One;
+    text-align: center;
+}
+
+h2 {
+    font-family: roboto mono;
+    font-size: 1.5rem;
+}
+
+main {
+    padding: .5rem 1.5rem .8rem 1.5rem;
+}
+
+p {
+    font-family: roboto mono;
+    font-weight: 600;
+    text-align: justify;
+}
+
+footer {
+    background-color: #33a3ff;
+    padding: .5rem;
+    text-align: center;
+}
+
+footer h2 {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+ul li {
+    font-family: roboto mono;
+    font-weight: 600;
+}
