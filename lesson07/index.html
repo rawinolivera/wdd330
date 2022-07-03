@@ -15,281 +15,70 @@
     </header>
     <main>
         <h2>Get Started with JSON Web Tokens</h2>
-        <p>In JavaScript, functions are first-class objects, which means they can be passed around in the same way as
-            every other value. They can have their own properties and methods, as well as accepting other functions as
-            parameters and being returned by other functions. This makes them a very flexible tool to work with in
-            JavaScript, and there are a variety of techniques and patterns that can be used to make code cleaner.
+        <p>JSON Web Token (JWT) is an open standard (RFC 7519) that defines a compact and self-contained way for
+            securely transmitting information between parties as a JSON object. This information can be verified and
+            trusted because it is digitally signed. JWTs can be signed using a secret (with HMAC algorithm) or a
+            public/private key pair using RSA.
         </p>
-        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Function Properties and Methods</span>
+        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">JSON WEB TOKEN STRUCTURE</span>
         </p>
-        <p>The fact that functions are first-class objects means they can have properties and methods themselves. For
-            example, all functions have a length property that returns the number of parameters the function has.
+        <p>JWTs consist of three parts separated by dots (.), which are: <br> <br>
+
+            <span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">Header:</span> typically consists of two
+            parts: the type of the token, which is JWT, and the hashing algorithm such
+            as HMAC SHA256 or RSA. <br>
+            <span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">Payload:</span> contains the claims. Claims
+            are statements about an entity (typically, the user) and additional
+            metadata. There are three types of claims: reserved, public, and private claims. <br>
+            <span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">Signature:</span> To create the signature
+            part you have to take the encoded header, the encoded payload, a secret,
+            the algorithm specified in the header, and sign that. <br>
+            Therefore, a JWT typically looks like the following. <br> <br>
+
+            xxxxx.yyyyy.zzzzz <br> <br>
         </p>
 
-        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Call and Apply Methods --></span> The
-            call() method can be used to set the value of this inside a function to an object that is provided as the
-            first argument. <br> The apply() method works in the same way, except the arguments of the function are
-            provided as an array, even if there is only one argument.
+        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Call and Apply Methods --></span> In
+            authentication, when the user successfully logs in using their credentials, a JSON Web Token will be
+            returned. Since tokens are credentials, great care must be taken to prevent security issues. In general, you
+            should not keep tokens longer than required. <br>
+
+            You also should not store sensitive session data in browser storage due to lack of security. <br>
+
+            Whenever the user wants to access a protected route, it should send the JWT, typically in the Authorization
+            header using the Bearer schema. Therefore the content of the header should look like the following.
         </p>
 
-        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Custom Properties --></span> There is
-            nothing to stop you adding your own properties to functions in the same way that you can add properties to
-            any object in JavaScript.
+
+        <div style="text-align:center;"> <img src="../images/jwt.JPG" alt="JWP"> </div> -->
+
+
+
+
+        <p>Benefits of JSON Web Tokens (JWT) comparing it to Simple Web Tokens (SWT) and Security
+            Assertion Markup Language Tokens (SAML).
+
+            As JSON is less verbose than XML, when it is encoded its size is also smaller; making JWT more compact than
+            SAML. This makes JWT a good choice to be passed in HTML and HTTP environments. <br>
+
+            Security-wise, SWT can only be symmetric signed by a shared secret using the HMAC algorithm. While JWT and
+            SAML tokens can also use a public/private key pair in the form of a X.509 certificate to sign them. However,
+            signing XML with XML Digital Signature without introducing obscure security holes is very difficult compared
+            to the simplicity of signing JSON. <br>
+
+            JSON parsers are common in most programming languages, because they map directly to objects, conversely XML
+            doesn’t have a natural document-to-object mapping. This makes it easier to work with JWT than SAML
+            assertions.
+
+            Regarding usage, JWT is used at an Internet scale. This highlights the ease of client side processing of
+            JWTs on multiple platforms, especially, mobile.
         </p>
 
-        <P>
-            MEMOIZATION: If a function takes some time to compute a return value, we can save the result in a cache
-            property. Then if the same argument is used again later, we can return the value from the cache, rather than
-            having to compute the result again.
-        </P>
-
-        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Immediately Invoked Function
-                Expressions</span>
-        </p>
-        <!--
-        <div style="text-align:center;"> <img src="../images/form-code.JPG" alt="Form html"> </div> -->
-        <p>
-            An Immediately Invoked Function Expression – or IIFE – (pronounced 'iffy') is an anonymous function that, as
-            the name suggests, is invoked as soon as it’s defined.
-        </p>
-
-        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Temporary Variables --></span> There is
-            no way to remove a variable from a scope once it’s been declared. If a variable is only required
-            temporarily, it may cause confusion if it’s still available later in the code. <br>Placing any code that
-            uses the temporary variable inside an IIFE will ensure it’s only available while the IIFE is invoked, then
-            it will disappear.
-        </p>
-
-        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Initialization Code --></span>
-            An IIFE can be used to set up any initialization code that there’ll be no need for again. Because the code
-            is only run once, there’s no need to create any reusable, named functions, and all the variables will also
-            be temporary.
-        </p>
-
-        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Safe Use of Strict Mode --></span> One
-            of the problems with simply placing 'use strict' at the beginning of a file is that it will enforce strict
-            mode on all the JavaScript in the file, and if you’re using other people’s code, there’s no guarantee that
-            they’ve coded in strict mode. <br> To avoid this, the recommended way to use strict mode is to place all
-            your code inside an IIFE.
-        </p>
-
-        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Creating Self-contained Code Blocks
-                --></span> An IIFE can be used to enclose a block of code inside its own private scope so it doesn’t
-            interfere with any other part of the program. Using IIFEs in this way means code can be added or removed
-            separately.
-        </p>
-
-        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Functions that Define and Rewrite
-                Themselves</span></p>
-        <p>
-            The dynamic nature of JavaScript means that a function is able to not only call itself, but define itself,
-            and even redefine itself. This is done by assigning an anonymous function to a variable that has the same
-            name as the function. <br> If the function is also assigned to another variable, this variable will maintain
-            the original function definition and not be rewritten. <br>The Lazy Definition Pattern and is often used
-            when some initialization code is required the first time it’s invoked. This means the initialization can be
-            done the first time it’s called, then the function can be redefined to what you want it to be for every
-            subsequent invocation.
-        </p>
-
-        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Init-Time Branching --> </span>Known as
-            init-time branching. This enables the functions to work more effectively in the browser, and avoid checking
-            for features every time they’re invoked.
-        </p>
-
-        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Recursive Functions</span></p>
-        <p>
-            A recursive function is one that invokes itself until a certain condition is met. It’s a useful tool to use
-            when iterative processes are involved.
-        </p>
-
-        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Callbacks</span></p>
-        <p>
-            They are functions passed to other functions as arguments and then invoked inside the function they are
-            passed to.
-        </p>
-
-        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Event-driven Asynchronous Programming
-                --></span> Callbacks can be used to facilitate event-driven asynchronous programming. JavaScript is a
-            single-threaded environment, which means only one piece of code will ever be processed at a time. This may
-            seem like a limitation, but non-blocking techniques can be used to ensure that the program continues to run.
-            Instead of waiting for an event to occur, a callback can be created that’s invoked when the event happens.
-            <br> JavaScript is still single-threaded, so only one task can happen at once. If an event only takes a
-            small amount of time to happen, it will still have to wait until other parts of the program have executed
-            before the callback is invoked. <br>We would have expected the callback to have been invoked immediately,
-            but a callback always has to wait for the current execution stack to complete before it’s invoked.
-        </p>
-
-        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Callback Hell --></span> The increase in
-            the use of asynchronous programming in JavaScript has meant that more and more callbacks are being used.
-            This can result in messy and confusing 'spaghetti code'. This is when more than one callback is used in the
-            same function, resulting in a large number of nested blocks that are difficult to comprehend. <br>
-            Callback hell is the term used to refer to this tangled mess of code.
-        </p>
-
-        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Promises --></span> A promise represents
-            the future result of an asynchronous operation. Promises don't do anything that can't already be achieved
-            using callbacks, but they help simplify the process, and avoid the convoluted code that can result from
-            using multiple callbacks.
-        </p>
-
-        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">The Promise Life Cycle --></span> When a
-            promise is created, it calls an asynchronous operation and is then said to be pending. It remains in this
-            state while the operation is taking place. At this stage, the promise is said to be unsettled. Once the
-            operation has completed, the promise is said to have been settled. A settled promise can result in two
-            different outcomes:
-        </p>
-
-        <ul>
-            <li><span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">Resolved </span> ― the asynchronous
-                operation was completed successfully.</li>
-            <li><span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">Rejected </span> ― the asynchronous
-                operation didn’t work as expected, wasn't successfully completed or resulted in an error.</li>
-        </ul>
-
-        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">A Super Promise --></span> There is a
-            pending phase while you wait on the results of an operation (taking the pill). Then once the promise is
-            settled, you deal with the results in an appropriate way ― by using your superpowers if the promise is
-            resolved, or dealing with any problems if it doesn't work out.
-        </p>
-
-        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Creating A Promise --></span> A promise
-            is created using a constructor function. This takes a function called an executor as an argument. The
-            executor initializes the promise and starts the asynchronous operation. <br>It also accepts two functions as
-            arguments: the resolve() function is called if the operation is successful, and the reject() function is
-            called if the operation fails.
-        </p>
-
-        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Dealing With A Settled Promise
-                --></span> Once a promise has been settled, the then() method can be used to deal with the outcome. This
-            method accepts two arguments. The first is a fulfilment function that’s called when the promise is resolved.
-            Any data returned from the resolve() function will be passed along to this function. The second argument is
-            a rejection function that’s called if the promise is rejected. Similar to the fulfilment function, the
-            rejection function receives any data returned from the reject() function.
-        </p>
-
-        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Chaining Multiple Promises --></span> If
-            each function that performs an asynchronous operation returns a promise, we can chain the then() methods
-            together to form a sequential piece of code that’s easy to read. Each promise will only begin once the
-            previous promise has been settled.
-        </p>
-
-        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Async Functions --></span> These
-            functions are preceded by the async keyword and allow you to write asynchronous code as if it was
-            synchronous. This is achieved by using the await operator before an asynchronous function. This will wrap
-            the return value of the function in a promise that can then be assigned to a variable. The next line of code
-            is not executed until the promise is resolved.
-        </p>
-
-        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Generalized Functions --></span>
-            Callbacks can be used to build more generalized functions. Instead of having lots of specific functions, one
-            function can be written that accepts a callback.
-        </p>
-
-        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Functions That Return Functions
-                --></span> Functions can accept another function as an argument (a callback), but
-            they can also return a function.
-        </p>
-
-        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Closures</span></p>
-        <p>
-            Closures are one of JavaScript’s most powerful features, but they can be difficult to get your head around
-            initially.
-        </p>
-
-        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Function Scope --></span> A closure is
-            formed when the inner function is returned by the outer function, maintaining access to any variables
-            declared inside the enclosing function.
-        </p>
-
-        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Returning Functions --></span> A closure
-            is a
-            reference to a variable that was created inside the scope of another function, but is then kept alive and
-            used in another part of the program. <br> The outer() function only has access to the variable outside,
-            which was declared in its scope. The inner() function, however, has access to the variable inside, declared
-            in its scope, but also the variable outside, declared outside its scope, but from within the outer()
-            function.
-        </p>
-
-        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">A Practical Example --></span> A closure
-            is formed when a function returns another function that then maintains access to any variables created in
-            the original function’s scope.
-        </p>
-
-        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">A Counter Example --></span> Closures
-            not only have access to variables declared in a parent function's scope, they can also change the value of
-            these variables.
-        </p>
-
-        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Generators --></span> ES6 introduced
-            support for generators. These are special functions used to produce iterators that maintain the state of a
-            value. <br> To define a generator function, an asterisk symbol (*) is placed after the function declaration.
-            Calling a generator function doesn’t actually run any of the code in the function; it returns a Generator
-            object that can be used to create an iterator that implements a next() method that returns a value every
-            time the next() method is called. <br> Generator functions employ the special yield keyword that is used to
-            return a value. The difference between the yield and the return keywords is that by using yield, the state
-            of the value returned is remembered the next time yield is called. <br> The generator object is now stored
-            in the sequence variable. It inherits a method called next(), which is then used to obtain the next value
-            produced by the yield command.
-        </p>
-
-        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Functional Programming</span></p>
-        <p>
-            Functional programming has gained momentum in recent years, with a dedicated following. The popularity of
-            purely functional languages, such as Clojure, Scala and Erlang, sparked an interest in functional
-            programming techniques that continues to grow. JavaScript has always supported functional-style programming
-            due to functions being first-class objects. <br>Functional programming is a programming paradigm. JavaScript
-            is a multi-paradigm language, meaning that it can be used to program in a variety of paradigms (and
-            sometimes a mash-up of them!).
-        </p>
-
-        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Pure Functions --></span><br> 1) The
-            return
-            value of a pure function should only depend on the values provided as arguments. It doesn't rely on values
-            from somewhere else in the program. <br>
-
-            2) There are no side-effects. A pure function doesn't change any values or data elsewhere in the program. It
-            only makes non-destructive data transformations and returns new values, rather than altering any of the
-            underlying data. <br> 3) Referential transparency. Given the same arguments, a pure function will always
-            return the same result. <br>
-            In order to follow these rules, any pure function must have:
-        </p>
-
-        <ul>
-            <li><span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">At least one argument; otherwise the
-                    return value must depend on something other than the arguments of the function, breaking the first
-                    rule</span></li>
-            <li><span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">A return value; otherwise there’s no
-                    point in the function (unless it has changed something else in the program – in which case, it’s
-                    broken the 'no side-effects' rule).</span></li>
-        </ul>
-        <p>
-            Pure functions help to make functional programming code more concise and predictable than in other
-            programming styles. <br>The absence of any side-effects tends to reduce the amounts of bugs that can creep
-            into your code, because there are no surprise dependencies as they only rely on any values provided as
-            arguments.
-        </p>
-        <p>
-            Functional programming uses pure functions as the building blocks of a program. The functions perform a
-            series of operations without changing the state of any data. Each function forms an abstraction that should
-            perform a single task, while encapsulating the details of its implementation inside the body of the
-            function.
-        </p>
-
-        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Higher-Order Functions --></span>
-            Higher-order functions are functions that accept another function as an argument, or return another function
-            as a result, or both. <br>
-            Closures are used extensively in higher-order functions as they allow us to create a generic function that
-            can be used to then return more specific functions based on its arguments.
-        </p>
-
-        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Currying --></span>
-            Currying is a process that involves the partial application of functions. It’s named after the logician
-            Haskell Curry — not the spicy food — just like the programming language Haskell is. His work on a paper by
-            Moses Schönfinkel lead to the development of this programming technique. <br>
-            A function is said to be curried when not all arguments have been supplied to the function, so it returns
-            another function that retains the arguments already provided, and expects the remaining arguments that were
-            omitted when the original function was called.
-        </p>
+        <h2>Chris Heilmann - Develop, Debug, Learn?</h2>
+        <p>After hearing his talk, I feel kind of confuse... A truly developer knows how to get the best when avoid
+            using all of recent tools which facilitate the job. <br> One of his phrases: we use other people code to
+            create ours... <br>He ends saying this is your work to build... made me think that I have to challeng myself
+            and move forward because there's a lot to do!!</p>
     </main>
     <footer>
         <h2>Rawin Olivera | BYUI Online | WDD-330</h2>
