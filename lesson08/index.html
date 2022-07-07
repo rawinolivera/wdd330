@@ -14,68 +14,140 @@
         <h1>Notes - Reading Lesson L08</h1>
     </header>
     <main>
-        <h2>Get Started with JSON Web Tokens</h2>
-        <p>JSON Web Token (JWT) is an open standard (RFC 7519) that defines a compact and self-contained way for
-            securely transmitting information between parties as a JSON object. This information can be verified and
-            trusted because it is digitally signed. JWTs can be signed using a secret (with HMAC algorithm) or a
-            public/private key pair using RSA.
+        <h2> JavaScript: Novice to Ninja - Chapter 14 HTML5 APIs</h2>
+        <p>HTML5 was for HTML what ES6 was for JavaScript – it added a large number of new features to the
+            specification. It also went beyond the actual markup language and brought together a number of related
+            technologies such as CSS and JavaScript.
         </p>
-        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">JSON WEB TOKEN STRUCTURE</span>
+        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">HTML5</span>
         </p>
-        <p>JWTs consist of three parts separated by dots (.), which are: <br> <br>
+        <p>The HTML5 specification is separated into modules that allow different features to be developed at different
+            paces then implemented without having to wait for other features to be completed.</p>
 
-            <span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">Header:</span> typically consists of two
-            parts: the type of the token, which is JWT, and the hashing algorithm such
-            as HMAC SHA256 or RSA. <br>
-            <span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">Payload:</span> contains the claims. Claims
-            are statements about an entity (typically, the user) and additional
-            metadata. There are three types of claims: reserved, public, and private claims. <br>
-            <span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">Signature:</span> To create the signature
-            part you have to take the encoded header, the encoded payload, a secret,
-            the algorithm specified in the header, and sign that. <br>
-            Therefore, a JWT typically looks like the following. <br> <br>
-
-            xxxxx.yyyyy.zzzzz <br> <br>
+        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">The data- Attribute</span></p>
+        <p>The data- attribute is a way of embedding data in a web page using custom attributes that are ignored by the
+            browser. They’re also private to a page, so are not intended to be used by an external service – their sole
+            purpose is to be used by a JavaScript program. <br>The names of these attributes can be decided by the
+            developer, but they must use the following format:</p>
+        <p>
+            <span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">Start with data-.</span><br>
+            <span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">Contain only lowercase letters, numbers,
+                hyphens,
+                dots, colons or underscores.</span><br>
+            <span style="color: #fff;text-shadow: .1rem .1rem .3rem #000;">Include an optional string value.</span><br>
         </p>
+        <p>Each element has a dataset property that can be used to access any data- attributes it contains. <br>Data
+            attributes provide a convenient way of adding data directly into the HTML markup, enabling a richer user
+            experience.</p>
 
-        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Call and Apply Methods --></span> In
-            authentication, when the user successfully logs in using their credentials, a JSON Web Token will be
-            returned. Since tokens are credentials, great care must be taken to prevent security issues. In general, you
-            should not keep tokens longer than required. <br>
-
-            You also should not store sensitive session data in browser storage due to lack of security. <br>
-
-            Whenever the user wants to access a protected route, it should send the JWT, typically in the Authorization
-            header using the Bearer schema. Therefore the content of the header should look like the following.
+        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">HTML5 APIs</span>
         </p>
+        <p>The HTML5 specification contains a number of APIs that help to gain access to hardware, such as cameras,
+            batteries, geolocation, and the graphics card. Hardware evolves quickly, and APIs are frequently introduced
+            to give developers access, and control new features that appear in the latest devices.</p>
 
-        <div style="text-align:center;"> <img src="../images/jwt.JPG" alt="JWP"> </div>
 
-        <p>Benefits of JSON Web Tokens (JWT) comparing it to Simple Web Tokens (SWT) and Security
-            Assertion Markup Language Tokens (SAML).
-
-            As JSON is less verbose than XML, when it is encoded its size is also smaller; making JWT more compact than
-            SAML. This makes JWT a good choice to be passed in HTML and HTTP environments. <br>
-
-            Security-wise, SWT can only be symmetric signed by a shared secret using the HMAC algorithm. While JWT and
-            SAML tokens can also use a public/private key pair in the form of a X.509 certificate to sign them. However,
-            signing XML with XML Digital Signature without introducing obscure security holes is very difficult compared
-            to the simplicity of signing JSON. <br>
-
-            JSON parsers are common in most programming languages, because they map directly to objects, conversely XML
-            doesn’t have a natural document-to-object mapping. This makes it easier to work with JWT than SAML
-            assertions.
-
-            Regarding usage, JWT is used at an Internet scale. This highlights the ease of client side processing of
-            JWTs on multiple platforms, especially, mobile.
+        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">HTML5 Web Storage --></span> The Web
+            Storage API provides a key-value store on the client’s computer that is similar to using cookies but has
+            fewer restrictions, more storage capacity, and is generally easier to use.
+        </p>
+        <p>
+            The Web Storage API has some crucial differences with cookies:
+        <ul>
+            <li>Information stored is not shared with the server on every request.</li>
+            <li>Information is available in multiple windows of the browser (but only if the domain is the same).</li>
+            <li>Storage capacity limit is much larger than the 4KB limit for cookies ( There is no actual limit in the
+                specification, but most browsers have a limit set at 5GB per domain.).</li>
+            <li>Any data stored does not automatically expire as it does with cookies. This potentially makes cookies a
+                better choice for something like showing a popup once a day.</li>
+        </ul>
         </p>
 
-        <h2>Chris Heilmann - Develop, Debug, Learn?</h2>
-        <p>After hearing his talk, I feel kind of confuse... A truly developer knows how to get the best when avoid
-            using all of recent tools which facilitate the job. <br> One of his phrases: we use other people code to
-            create ours... <br>He ends saying this is your work to build... made me think that I have to challeng myself
-            and move forward because there's a lot to do!!</p>
+        <p>Every time a value is saved to local storage, a storage event is fired. Note that this event is only fired on
+            any other windows or tabs from the same domain, and only if the value of the item being saved changes. <br>
         </p>
+
+        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Geolocation --></span> The Geolocation
+            API is used to obtain the geographical position of the device. This means it can be used to find the user’s
+            exact location, then link to nearby places or measure the speed at which the user is moving. This
+            information can then be used to filter data based on the user's location or speed and direction of travel.
+        </p>
+
+        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Web Workers --></span> Web workers allow
+            processes to be run in the background, adding support for concurrency in JavaScript. The idea is that any
+            processes that could take a long time are carried out in the background, so a website will continue to
+            function without fear of the dreaded 'script has become unresponsive' message that occurs when a script runs
+            for too long. <br> Web workers use the concept of messages to communicate back and forth between the main
+            script and worker script. The postMessage() method can be used to send a message and start the worker
+            working. The argument to this method can send any data to the web worker. To post a message to the worker.
+        </p>
+
+        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Service Workers --></span> The Service
+            Worker API allows a worker script to run in the background with the added benefit of being able to intercept
+            network requests. This allows you to take alternative action if the network is offline, and effectively
+            create app-like offline experiences. Service workers also allow access to push notifications and background
+            syncing. Service workers require a secure network to run on HTTPS to avoid any malicious code hijacking
+            network requests.
+        </p>
+
+        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Websockets --></span> The main form of
+            communication on the web has always been the HTTP protocol. This uses a system of request and response to
+            send data back and forth. <br>Websocket is a new protocol that allows two-way communication with a server –
+            also known as push messaging. This means that a connection is kept open and responses are ‘pushed’ to the
+            client as soon as they are received.
+        </p>
+
+        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Notifications --></span> The
+            Notification API allows you to show messages using the system's notifications. This is usually a popup in
+            the corner of the screen, but it changes depending on the operating system. An advantage of using the system
+            notification is that they will still be displayed even if the web page that calls them isn't the current
+            tab. <br> Depending on your browser and operating system, some notifications close automatically after a
+            short period of time, and some will stay on the screen until the user clicks on them. You can close the
+            notification programmatically using the close() method.
+        </p>
+
+        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Multimedia --></span> HTML5 introduced
+            the < audio> and < video> tags used to insert audio and video clips into a web page. It also introduced a
+                    Media API for controlling the playback of the clips using JavaScript. <br>An audio clip can be
+                    inserted into a page with the < audio> tag, using the src attribute to point to the audio file.
+                        <br>A
+                        video clip can be inserted with the < video> tag, using the src attribute to point to the movie
+                            file. <br>
+        </p>
+
+        <p>
+            Audio and video clips also have a number of events that will fire when they occur, including:
+        <ul>
+            <li>The play event, which fires when the clip starts and when it resumes after a pause.</li>
+            <li>The pause event, which fires when the clip is paused.</li>
+            <li>The volumechange event, which fires when the volume is changed.</li>
+            <li>The loadedmetadata event, which we saw in the note above, and which fires when all the video's metadata
+                has loaded.</li>
+        </ul>
+        </p>
+        <p>
+            The audio and video elements bring native support for multimedia into the browser, and the API gives
+            developers full control of the playback of audio tracks and video clips.
+        </p>
+
+        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Drawing with Canvas</span>
+        </p>
+        <p>The canvas element was introduced to allow graphics to be drawn onto a web page in real time using
+            JavaScript. A canvas element is a rectangular element on the web page. It has a coordinate system that
+            starts at (0,0) in the top-left corner.
+        </p>
+
+        <p><span style="color: #000051;text-shadow: .1rem .1rem .3rem #33a3ff;">Shims and Polyfills</span>
+        </p>
+        <p>Libraries of code that allow you to use the APIs as usual. They then fill in the necessary code that's
+            not provided natively by the user’s browser. <br> The terms shim and polyfill are often used
+            interchangeably. The main difference between them is that a shim is a piece of code that adds some missing
+            functionality to a browser, although the implementation method may differ slightly from the standard API. A
+            polyfill is a shim that achieves the same functionality, while also using the API commands that would be
+            used if the feature was supported natively.
+        </p>
+
+
     </main>
     <footer>
         <h2>Rawin Olivera | BYUI Online | WDD-330</h2>
