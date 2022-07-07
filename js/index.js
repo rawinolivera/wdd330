@@ -30,6 +30,10 @@ const links = [
     {
         label: "L08 notes",
         url: "lesson08/index.html"
+    },
+    {
+        label: "L09 notes",
+        url: "lesson09/index.html"
     }
 ]
 
