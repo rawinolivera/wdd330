@@ -2,17 +2,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap');
 
 header div {
-    background-color: green;
+    background: linear-gradient(#0088ff 75%, #00ff88);
     text-align: center;
     padding: 1.8rem 1rem 1rem;
 }
 
-header h1 {
+header h1, h2 {
     margin: 0;
     padding-top: .8rem;
     color: #fff;
     font-family: Merienda One;
     font-size: 2.5rem;
+    text-shadow: .1rem .1rem .2rem #000;
+}
+
+h2 {
+    font-size: 1.5rem;
+    padding-top: 0;
 }
 
 main {
@@ -20,12 +26,17 @@ main {
     padding: 1rem 2rem;
 }
 
+main li {
+    padding-bottom: .1rem;
+}
+
 main li a {
     font-weight: 900;
+
 }
 
 footer {
-    background-color: green;
+    background: linear-gradient(#0088ff 75%, #00ff88);
     padding: .5rem;
 }
 
@@ -44,21 +55,40 @@ footer h2 {
     
     header div {
         display: grid;
-        grid-template-columns: 1fr 3fr;
+        grid-template-columns: auto 1fr;
         padding: 1rem;
         align-items: center;
     }
 
-    header img {
+    header div img {
         width: 12rem;
+        grid-row: 1 / 2;
     }
 
-    header h1 {
+    header div h1 {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
         font-size: 4rem;
+        margin-bottom: 2rem;
+        padding-top: 0;
+    }
+
+    header div h2 {
+        font-size: 2.5rem;
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+        margin-top: 10rem;
     }
 
     main {
         padding-left: 4rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    main p {
+        font-size: 1.2rem;
+        font-weight: 600;
     }
 
     footer h2 {
