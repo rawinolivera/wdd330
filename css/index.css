@@ -35,6 +35,10 @@ main li a {
 
 }
 
+.links a {
+    line-height: 1.9rem;
+}
+
 footer {
     background: linear-gradient(#0088ff 75%, #00ff88);
     padding: .5rem;
